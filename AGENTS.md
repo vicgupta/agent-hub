@@ -1,8 +1,19 @@
-# Agent Hub - agent notes
+<!-- BEGIN:nextjs-agent-rules -->
 
-Production work follows the ship and production-ready skills in ~/.agents/skills/ (shared by Codex and
-Claude Code). READINESS.md is the definition of done; PRODUCT.md is the spec; GOAL.md is the goal sentence.
+## This is NOT the Next.js you know
 
-- Run / test / deploy: see PRODUCT.md "Stack and hosting".
-- Owner-only items: one exact action at a time (owner-actions skill). Third-party reviews are waiting rows.
-- Evidence under qa/. Commit and push after each verified flow. Only commit files you changed.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+
+## Working here
+- Run: npm run dev (http://localhost:3000)
+- Test: npm test (vitest)
+- Build: npm run build
+- Start (prod): npm start
+- Deploy: railway up (needs `railway login`)
+- Health: GET /api/health
+- DB: SQLite at data/agent-hub.db (env DB_PATH); tests use :memory:
+- Lighthouse: run against http://localhost:3000 with Chrome headless
